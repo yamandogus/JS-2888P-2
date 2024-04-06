@@ -34,7 +34,7 @@ async function userDataCards(){
                             <li>Phone: ${element.phone}</li>
                             <li>Website: ${element.website}</li>
                         </ul>
-                        <a id="links" href="/posts.html?userId=${element.id}">View Posts</a>
+                        <a id="links" class="btn" href="/JS-5214/posts.html?userId=${element.id}">View Posts</a>
                     </div>
                 </div>
             </div>

@@ -1,25 +1,21 @@
 async function userData(){
-        const urlParams= new URLSearchParams(window.location.search); 
-        // tarayıcı çubuğu sorgu parametresi 
-        let id = urlParams.get("userId"); 
-        // userİd değerini alıyoruz 
-        console.log("Gelen İd:",id);
+    const urlParams= new URLSearchParams(window.location.search); // tarayıcı çubuğu sorgu parametresi 
+    let id = urlParams.get("userId"); // userİd değerini alıyoruz 
+    console.log("Gelen İd:",id);
 
-        if(!id || isNaN(id) || id < 1 || id > 10 ){
-        id = prompt("Lütfen 1 ile 10 arasında bir değer giriniz");
-        // html de girilen id 1-10 arasında değilse
-        //veya bulunamadıysa id ye yeni bir değer atanacak oda kullanıcadan alınan prompt
+    if(!id || isNaN(id) || id < 1 || id > 10 ){
+        id = prompt("Lütfen 1 ile 10 arasında bir değer giriniz"); // html de girilen id 1-10 arasında değilse
+    //veya bulunamadıysa id ye yeni bir değer atanacak oda kullanıcadan alınan prompt
         if(!id || isNaN(id) || id<1 || id>10){
             alert("Girdiğiniz sayı 1 ile 10 arasında olmadıldır!");
             throw new Error("Geçersiz Id");
-            }
         }
-        console.log("kullanıcı istek:", id);
-        const datatUser = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
-        const data = await datatUser.json();
-        console.log("data:", data);
-        return data; 
-
+    }
+    console.log("kullanıcı istek:", id);
+    const datatUser = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
+    const data = await datatUser.json();
+    console.log("data:", data);
+    return data; 
 }
 
 async function dataPromiseId() {
