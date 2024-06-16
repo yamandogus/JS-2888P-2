@@ -1,19 +1,17 @@
-// fetch("https://jsonplaceholder.typicode.com/users");
-async function resourcesData(){
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-    return data;
+async function resourcesData() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  console.log(response);
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
 
-};
-
-async function userDataCards(){
-    const userData = await resourcesData();
-    console.log(userData);
-    const userContainer = document.getElementById("data-row");
-    let markup = "";
-    userData.forEach(element => {
+async function userDataCards() {
+  const userData = await resourcesData();
+  console.log(userData);
+  const userContainer = document.getElementById("data-row");
+  let markup = "";
+  userData.forEach((element) => {
     markup += `
     <div class="col-lg-4 mb-4">
                 <div class="card card_user">
@@ -34,14 +32,13 @@ async function userDataCards(){
                             <li>Phone: ${element.phone}</li>
                             <li>Website: ${element.website}</li>
                         </ul>
-                        <a id="links" class="btn" href="/JS-5214/posts.html?userId=${element.id}">View Posts</a>
+                       <a id="links" class="btn" href="posts.html?userId=${element.id}">View Posts</a>
                     </div>
                 </div>
             </div>
-    `   
-    });
-    userContainer.innerHTML = markup;
+    `;
+  });
+  userContainer.innerHTML = markup;
 }
 
 userDataCards();
-
